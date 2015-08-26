@@ -13,6 +13,7 @@
 		4E561F281B8E54B000280208 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E561F261B8E54B000280208 /* LaunchScreen.xib */; };
 		4E561F341B8E54B000280208 /* InstagramFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E561F331B8E54B000280208 /* InstagramFeedTests.swift */; };
 		63D347165774419EE3FE3BB4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFF0D7CC0F56FB2DF77A50D /* libPods.a */; };
+		79AF89A51B8E58500099A611 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF89A41B8E58500099A611 /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4E561F2D1B8E54B000280208 /* InstagramFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E561F321B8E54B000280208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E561F331B8E54B000280208 /* InstagramFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFeedTests.swift; sourceTree = "<group>"; };
+		79AF89A41B8E58500099A611 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		8ACC397DF2C77B52F205EA94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EAFF0D7CC0F56FB2DF77A50D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 		4E561F1A1B8E54B000280208 /* InstagramFeed */ = {
 			isa = PBXGroup;
 			children = (
+				79AF89A31B8E57F80099A611 /* view controllers */,
 				4E561F1D1B8E54B000280208 /* AppDelegate.swift */,
 				4E561F211B8E54B000280208 /* Main.storyboard */,
 				4E561F241B8E54B000280208 /* Images.xcassets */,
@@ -122,6 +125,14 @@
 				4E561F321B8E54B000280208 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79AF89A31B8E57F80099A611 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				79AF89A41B8E58500099A611 /* PhotosViewController.swift */,
+			);
+			name = "view controllers";
 			sourceTree = "<group>";
 		};
 		B6CF8B4B7721C350142F4C90 /* Pods */ = {
@@ -269,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E561F1E1B8E54B000280208 /* AppDelegate.swift in Sources */,
+				79AF89A51B8E58500099A611 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
