@@ -12,6 +12,8 @@
 		4E561F251B8E54B000280208 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E561F241B8E54B000280208 /* Images.xcassets */; };
 		4E561F281B8E54B000280208 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E561F261B8E54B000280208 /* LaunchScreen.xib */; };
 		4E561F341B8E54B000280208 /* InstagramFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E561F331B8E54B000280208 /* InstagramFeedTests.swift */; };
+		4EA10A6B1B8E605200C10FA0 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA10A6A1B8E605200C10FA0 /* PhotoCell.swift */; };
+		4EA10A6E1B8E623D00C10FA0 /* BridgeFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA10A6D1B8E623D00C10FA0 /* BridgeFile.m */; };
 		63D347165774419EE3FE3BB4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFF0D7CC0F56FB2DF77A50D /* libPods.a */; };
 		79AF89A51B8E58500099A611 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AF89A41B8E58500099A611 /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +39,9 @@
 		4E561F2D1B8E54B000280208 /* InstagramFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstagramFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E561F321B8E54B000280208 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E561F331B8E54B000280208 /* InstagramFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramFeedTests.swift; sourceTree = "<group>"; };
+		4EA10A6A1B8E605200C10FA0 /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		4EA10A6C1B8E623D00C10FA0 /* InstagramFeed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramFeed-Bridging-Header.h"; sourceTree = "<group>"; };
+		4EA10A6D1B8E623D00C10FA0 /* BridgeFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeFile.m; sourceTree = "<group>"; };
 		79AF89A41B8E58500099A611 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		8ACC397DF2C77B52F205EA94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EAFF0D7CC0F56FB2DF77A50D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +103,8 @@
 				4E561F241B8E54B000280208 /* Images.xcassets */,
 				4E561F261B8E54B000280208 /* LaunchScreen.xib */,
 				4E561F1B1B8E54B000280208 /* Supporting Files */,
+				4EA10A6D1B8E623D00C10FA0 /* BridgeFile.m */,
+				4EA10A6C1B8E623D00C10FA0 /* InstagramFeed-Bridging-Header.h */,
 			);
 			path = InstagramFeed;
 			sourceTree = "<group>";
@@ -131,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				79AF89A41B8E58500099A611 /* PhotosViewController.swift */,
+				4EA10A6A1B8E605200C10FA0 /* PhotoCell.swift */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -279,7 +287,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA10A6E1B8E623D00C10FA0 /* BridgeFile.m in Sources */,
 				4E561F1E1B8E54B000280208 /* AppDelegate.swift in Sources */,
+				4EA10A6B1B8E605200C10FA0 /* PhotoCell.swift in Sources */,
 				79AF89A51B8E58500099A611 /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,9 +418,12 @@
 			baseConfigurationReference = 4C898ABCAC74FA9C3F205A3E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = InstagramFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "InstagramFeed/InstagramFeed-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -419,9 +432,11 @@
 			baseConfigurationReference = 8ACC397DF2C77B52F205EA94 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = InstagramFeed/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "InstagramFeed/InstagramFeed-Bridging-Header.h";
 			};
 			name = Release;
 		};

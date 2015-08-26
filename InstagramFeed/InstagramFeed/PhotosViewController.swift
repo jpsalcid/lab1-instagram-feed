@@ -8,8 +8,10 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var photos: NSArray?
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,16 +25,39 @@ class PhotosViewController: UIViewController {
             var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
             
             self.photos = responseDictionary["data"] as? NSArray
-//            self.tableView.reloadData()
+            self.tableView.rowHeight = 320
+            self.tableView.reloadData()
             
             println("response: \(self.photos)")
         }
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let photos = photos {
+            return photos.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier("com.lab1.PhotoPrototypeCell", forIndexPath: indexPath) as! PhotoCell
+        
+        let photo = photos![indexPath.row]
+        
+        let url = NSURL(string: (photo.valueForKeyPath("images.low_resolution.url") as! String))!
+        cell.photoImageView.setWithImageUrl(url)
+        return cell
+    }
+    
     
 
     /*
