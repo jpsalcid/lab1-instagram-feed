@@ -54,7 +54,8 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         let photo = photos![indexPath.row]
         
         let url = NSURL(string: (photo.valueForKeyPath("images.low_resolution.url") as! String))!
-        cell.photoImageView.setWithImageUrl(url)
+        
+        cell.photoImageView.setImageWithURL(url)
         return cell
     }
     
