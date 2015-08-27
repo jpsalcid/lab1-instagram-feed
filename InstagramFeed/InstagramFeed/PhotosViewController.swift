@@ -9,12 +9,19 @@
 import UIKit
 
 class PhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var refreshControl: UIRefreshControl!
     var photos: NSArray?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "fetchPhotos", forControlEvents: UIControlEvents.ValueChanged)
+
+        let dummyTableVC = UITableViewController()
+        dummyTableVC.tableView = tableView
+        dummyTableVC.refreshControl = refreshControl
 
         // Do any additional setup after loading the view.
         var clientId = "05ab649339fd49618ed83857fdfeff25"
@@ -57,6 +64,24 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.photoImageView.setImageWithURL(url)
         return cell
+    }
+    
+    func fetchPhotos() {
+        
+
+            var clientId = "05ab649339fd49618ed83857fdfeff25"
+            
+            var url = NSURL(string: "https://api.instagram.com/v1/media/popular?client_id=\(clientId)")!
+            var request = NSURLRequest(URL: url)
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                var responseDictionary = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as! NSDictionary
+                
+                self.photos = responseDictionary["data"] as? NSArray
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+        
+
     }
     
     
